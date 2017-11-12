@@ -35,7 +35,7 @@ public class PopulationController {
 	
 	@RequestMapping(value = "/getPopulation", method = RequestMethod.GET)
 	public String populationStatusByCountry (@RequestParam String country) {
-		logger.info("Requested for country "+country);
+		logger.info("Service invoked for "+country+" at "+System.currentTimeMillis());
 		WorldPopulation returnPopulation = null;
 		if (null==country) {
 			logger.info("Country not specified in GET");
@@ -51,6 +51,7 @@ public class PopulationController {
 				}
 			}
 		}
+		logger.info("Request served for "+country+" at "+System.currentTimeMillis());
 		return returnPopulation.toString();
 		
 	}
